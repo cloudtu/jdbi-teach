@@ -13,7 +13,7 @@ public class Demo {
     private static final Logger logger = LoggerFactory.getLogger(Demo.class);
 
     /**
-     * demo UserDao
+     * demo Dao basic
      *
      * @param args
      */

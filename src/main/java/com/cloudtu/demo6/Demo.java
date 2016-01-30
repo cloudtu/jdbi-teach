@@ -18,7 +18,7 @@ public class Demo {
     private static final Logger logger = LoggerFactory.getLogger(Demo.class);
 
     /**
-     * demo show sql
+     * demo show sql log
      *
      * @param args
      */

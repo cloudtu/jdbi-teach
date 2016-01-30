@@ -14,7 +14,7 @@ public class Demo {
     private static final Logger logger = LoggerFactory.getLogger(Demo.class);
 
     /**
-     * demo UserDao, AddressDao class under the same DB transaction
+     * demo Dao with transaction, entity with parent-child relation
      *
      * @param args
      */
