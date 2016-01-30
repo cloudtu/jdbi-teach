@@ -1,7 +1,7 @@
 package com.cloudtu.demo2;
 
-import com.cloudtu.H2DbConst;
-import com.cloudtu.H2DbCreator;
+import com.cloudtu.h2db.H2DbConst;
+import com.cloudtu.h2db.H2DbCreator;
 import com.cloudtu.bean.User;
 import org.h2.jdbcx.JdbcConnectionPool;
 import org.skife.jdbi.v2.DBI;

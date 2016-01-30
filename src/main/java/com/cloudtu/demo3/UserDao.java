@@ -13,5 +13,5 @@ public interface UserDao {
     int updateName(@Bind("userId") long userId, @Bind("name") String name);
 
     @SqlQuery("select name from user where userId = :userId")
-    String findNameById(@Bind("userId") int userId);
+    String findNameById(@Bind("userId") long userId);
 }

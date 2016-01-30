@@ -1,13 +1,11 @@
 package com.cloudtu.demo1;
 
-import com.cloudtu.H2DbConst;
-import com.cloudtu.H2DbCreator;
+import com.cloudtu.h2db.H2DbConst;
+import com.cloudtu.h2db.H2DbCreator;
 import org.skife.jdbi.v2.DBI;
 import org.skife.jdbi.v2.Handle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Map;
 
 public class Demo {
     private static final Logger logger = LoggerFactory.getLogger(Demo.class);

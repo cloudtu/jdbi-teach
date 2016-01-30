@@ -1,5 +1,6 @@
-package com.cloudtu.demo3;
+package com.cloudtu.demo5;
 
+import com.cloudtu.bean.UserWithAddress;
 import com.cloudtu.h2db.H2DbConst;
 import com.cloudtu.h2db.H2DbCreator;
 import org.h2.jdbcx.JdbcConnectionPool;
@@ -13,7 +14,7 @@ public class Demo {
     private static final Logger logger = LoggerFactory.getLogger(Demo.class);
 
     /**
-     * demo UserDao
+     * demo UserDao, AddressDao class under the same DB transaction
      *
      * @param args
      */
@@ -28,10 +29,10 @@ public class Demo {
         // DBI.onDemand(...) 會自動控制 connection 的 open & close
         UserDao userDao = dbi.onDemand(UserDao.class);
 
-        logger.info("addAmount : {}", userDao.add(1, "duke"));
-        logger.info("name : {}", userDao.findNameById(1));
+        userDao.add(1, "duke", "taiwan", "america");
 
-        logger.info("updAmount : {}", userDao.updateName(1, "cloudtu"));
-        logger.info("name : {}", userDao.findNameById(1));
+        UserWithAddress userWithAddress =  userDao.find(1);
+        logger.info("user : {}", userWithAddress.getUser());
+        userWithAddress.getAddresses().forEach(address -> logger.info("address : {}", address));
     }
 }

@@ -1,4 +1,4 @@
-package com.cloudtu;
+package com.cloudtu.h2db;
 
 import org.skife.jdbi.v2.DBI;
 import org.skife.jdbi.v2.Handle;

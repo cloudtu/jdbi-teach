@@ -23,7 +23,7 @@ public interface UserDao {
     int update(@BindBean User user);
 
     @SqlQuery("select * from user where userId = :userId")
-    User find(@Bind("userId") int userId);
+    User find(@Bind("userId") long userId);
 
     @SqlQuery("select * from user where userId in (<userIdList>)")
     List<User> find(@BindIn("userIdList") List<Long> userIdList);
