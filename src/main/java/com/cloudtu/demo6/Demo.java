@@ -1,18 +1,15 @@
 package com.cloudtu.demo6;
 
-import com.cloudtu.bean.User;
 import com.cloudtu.h2db.H2DbConst;
 import com.cloudtu.h2db.H2DbCreator;
 import org.h2.jdbcx.JdbcConnectionPool;
 import org.skife.jdbi.v2.DBI;
 import org.skife.jdbi.v2.Handle;
 import org.skife.jdbi.v2.logging.SLF4JLog;
-import org.skife.jdbi.v2.util.StringColumnMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
-import java.util.Map;
 
 public class Demo {
     private static final Logger logger = LoggerFactory.getLogger(Demo.class);
