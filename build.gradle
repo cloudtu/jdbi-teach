@@ -10,7 +10,7 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 [compileJava, compileTestJava, javadoc]*.options*.encoding = "UTF-8"
 
-//mainClassName = "com.tenmax.youtube.app.RunSyncChannelAndVideo"
+mainClassName = "com.cloudtu.demo6.Demo"
 
 dependencies {
     compile "com.h2database:h2:1.4.191"
