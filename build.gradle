@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: "idea"
+apply plugin: "application"
+
+repositories {
+    jcenter()
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+[compileJava, compileTestJava, javadoc]*.options*.encoding = "UTF-8"
+
+//mainClassName = "com.tenmax.youtube.app.RunSyncChannelAndVideo"
+
+dependencies {
+    compile("org.jdbi:jdbi:2.71")
+    compile("org.antlr:stringtemplate:3.2.1")
+    compile 'org.slf4j:slf4j-api:1.7.13'
+
+    testCompile 'junit:junit:4.12'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.10"
+}
