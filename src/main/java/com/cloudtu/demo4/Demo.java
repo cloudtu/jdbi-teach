@@ -24,10 +24,8 @@ public class Demo {
 
         DataSource dataSource = JdbcConnectionPool.create(H2DbConst.JDBC_URL,
                                                           H2DbConst.DB_USER_NAME, H2DbConst.DB_USER_PASSWORD);
-        // use connection pool
         DBI dbi = new DBI(dataSource);
 
-        // DBI.onDemand(...) 會自動控制 connection 的 open & close
         UserDao userDao = dbi.onDemand(UserDao.class);
 
         logger.info("addAmount : {}", userDao.add(1, "duke"));

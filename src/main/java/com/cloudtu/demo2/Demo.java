@@ -26,12 +26,12 @@ public class Demo {
 
         DataSource dataSource = JdbcConnectionPool.create(H2DbConst.JDBC_URL,
                                                           H2DbConst.DB_USER_NAME, H2DbConst.DB_USER_PASSWORD);
-        // use connection pool
+        // 可經由 connection pool 取得連線
         DBI dbi = new DBI(dataSource);
 
-        // Handle 類似 JDBC 的 Connection，用完後要呼叫 Handle.close()
+        // 用 try with resource 語法簡化程式碼
         try (Handle handle = dbi.open()){
-            // insert data
+            // fluent api - insert data
             handle.createStatement("insert into user (userId, name) values (:userId, :name)")
                         .bind("userId", 1)
                         .bind("name", "duke")
@@ -41,21 +41,24 @@ public class Demo {
                         .bind("name", "cloudtu")
                         .execute();
 
-            // query all
+            // fluent api - query all - mapping to List<Map>
             for(Map<String, Object> user : handle.createQuery("select * from user").list()){
                 logger.info(user.toString());
             }
 
+            // fluent api - query all - mapping to  List<User>
             for (User user : handle.createQuery("select * from user")
                                    .map(User.class)
                                    .list()) {
                 logger.info("user : {}", user);
             }
 
-            // query first record
+            // fluent api - query first record - mapping to Map<String, Object>
             logger.info("user : {}" , handle.createQuery("select * from user where userId = :userId")
                                             .bind("userId", 1)
                                             .first());
+
+            // fluent api - query first record - mapping to String
             logger.info("name : {}" , handle.createQuery("select name from user where userId = :userId")
                                             .bind("userId", 1)
                                             .map(StringColumnMapper.INSTANCE)

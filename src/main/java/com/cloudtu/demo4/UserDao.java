@@ -12,7 +12,9 @@ import org.skife.jdbi.v2.unstable.BindIn;
 
 import java.util.List;
 
+// @BindBean 要搭配 @RegisterMapper 一起使用
 @RegisterMapper(UserMapper.class)
+// @BindIn 要搭配 @UseStringTemplate3StatementLocator 一起使用
 @UseStringTemplate3StatementLocator
 public interface UserDao {
 
@@ -20,11 +22,13 @@ public interface UserDao {
     int add(@Bind("userId") long userId, @Bind("name") String name);
 
     @SqlUpdate("update user set name = :name where userId = :userId")
+    // @BindBean - 綁定整個 bean
     int update(@BindBean User user);
 
     @SqlQuery("select * from user where userId = :userId")
     User find(@Bind("userId") long userId);
 
     @SqlQuery("select * from user where userId in (<userIdList>)")
+    //@BindIn - in condition query
     List<User> find(@BindIn("userIdList") List<Long> userIdList);
 }

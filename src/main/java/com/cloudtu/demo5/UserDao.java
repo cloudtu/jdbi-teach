@@ -21,6 +21,7 @@ public abstract class UserDao {
     @SqlUpdate("insert into user (userId, name) values (:userId, :name)")
     abstract int add(@Bind("userId") long userId, @Bind("name") String name);
 
+    // UserDao, AddressDao instances are under the same DB transaction
     @Transaction
     public void add(final long userId, final String name, String... addresses){
         add(userId, name);
